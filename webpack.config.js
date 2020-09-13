@@ -6,8 +6,10 @@ const port = process.env.PORT || 8080;
 module.exports = {
   // Webpack configuration goes here
   entry: './src/index.js',
-  output: {
-    filename: 'bundle.[hash].js'
+ output: {
+    filename: 'static/[name].[hash].js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module : {rules : [
     {
