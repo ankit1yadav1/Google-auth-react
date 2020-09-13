@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT || 8080;
@@ -6,8 +7,10 @@ const port = process.env.PORT || 8080;
 module.exports = {
   // Webpack configuration goes here
   entry: './src/index.js',
-  output: {
-    filename: 'bundle.[hash].js'
+ output: {
+    filename: 'static/[name].[hash].js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module : {rules : [
     {
